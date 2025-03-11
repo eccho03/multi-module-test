@@ -22,3 +22,4 @@ dependencyResolutionManagement {
 rootProject.name = "LearningMate"
 include(":app")
 include(":build-logic")
+include(":core")
