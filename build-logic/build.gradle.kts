@@ -1,13 +1,26 @@
 plugins {
-    id("java-library")
-    alias(libs.plugins.kotlin.jvm)
+    `kotlin-dsl`
+    `kotlin-dsl-precompiled-script-plugins`
 }
-java {
-    sourceCompatibility = JavaVersion.VERSION_11
-    targetCompatibility = JavaVersion.VERSION_11
+
+dependencies {
+    implementation(libs.android.gradlePlugin)
+    implementation(libs.kotlin.gradlePlugin)
 }
-kotlin {
-    compilerOptions {
-        jvmTarget = org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_11
+
+gradlePlugin {
+    plugins {
+        register("androidHilt") {
+            id = "jun.android.hilt"
+            implementationClass = "com.jun.loginCAApp.HiltAndroidPlugin"
+        }
+        register("kotlinHilt") {
+            id = "jun.kotlin.hilt"
+            implementationClass = "com.jun.loginCAApp.HiltKotlinPlugin"
+        }
+        register("androidRoom") {
+            id = "jun.android.room"
+            implementationClass = "com.jun.loginCAApp.AndroidRoomPlugin"
+        }
     }
 }
