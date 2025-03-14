@@ -1,4 +1,5 @@
 pluginManagement {
+
     repositories {
         google {
             content {
@@ -11,6 +12,7 @@ pluginManagement {
         gradlePluginPortal()
     }
 }
+
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
@@ -21,5 +23,6 @@ dependencyResolutionManagement {
 
 rootProject.name = "LearningMate"
 include(":app")
-include(":build-logic")
-include(":core")
+include(":domain")
+include(":data")
+include(":presentation")
